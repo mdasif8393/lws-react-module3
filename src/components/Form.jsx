@@ -33,9 +33,16 @@ export default function Form() {
       </>
     );
 
+  // handlers
+  const handleTextChange = (e) => {
+    setError(null);
+    setAnswer(e.target.value);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("submitting");
+    setError(null);
     try {
       await submitForm(answer);
       setStatus("success");
@@ -43,12 +50,6 @@ export default function Form() {
       setStatus("typing");
       setError(err.message);
     }
-  };
-
-  // handlers
-  const handleTextChange = (e) => {
-    setError(null);
-    setAnswer(e.target.value);
   };
 
   return (

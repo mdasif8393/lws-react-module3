@@ -1,10 +1,10 @@
-import Form from "./components/Form";
+import Pointer from "./components/Pointer";
 import "./components/style.css";
 
 function App() {
   return (
     <div>
-      <Form status={status} key={status} />
+      <Pointer />
     </div>
   );
 }
