@@ -1,10 +1,11 @@
-import "./App.css";
+import Form from "./components/Form";
+import "./components/style.css";
 
 function App() {
   return (
-    <>
-      <h1>Hello</h1>
-    </>
+    <div>
+      <Form status={status} key={status} />
+    </div>
   );
 }
 
