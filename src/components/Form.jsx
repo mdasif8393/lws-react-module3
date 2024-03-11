@@ -1,77 +1,36 @@
-/* eslint-disable no-constant-condition */
-
 import { useState } from "react";
 
-function submitForm(answer) {
-  // Pretend it's hitting the network.
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (answer.toLowerCase() === "dhaka") {
-        resolve();
-      } else {
-        reject(new Error("Good guess but a wrong answer. Try again!"));
-      }
-    }, 3000);
-  });
-}
-
-/* eslint-disable react/prop-types */
 export default function Form() {
-  // visual states: typing, submitting, success
+  const [inputs, setInputs] = useState([
+    {
+      id: 1,
+      label: "input",
+    },
+  ]);
 
-  // mandatory data state
-  const [answer, setAnswer] = useState("");
-  const [error, setError] = useState(null);
-
-  // visual state theke paoa final state
-  const [status, setStatus] = useState("typing");
-
-  if (status === "success")
-    return (
-      <>
-        <h1>Thats right!</h1>
-      </>
-    );
-
-  // handlers
-  const handleTextChange = (e) => {
-    setError(null);
-    setAnswer(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("submitting");
-    setError(null);
-    try {
-      await submitForm(answer);
-      setStatus("success");
-    } catch (err) {
-      setStatus("typing");
-      setError(err.message);
-    }
+  const handleAddInput = () => {
+    const nextId = inputs[inputs.length - 1].id + 1;
+    setInputs([
+      ...inputs,
+      {
+        id: nextId,
+        label: "input",
+      },
+    ]);
   };
 
   return (
-    <>
-      <h2>City quiz</h2>
-      <p>What city is located on two continents?</p>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          value={answer}
-          onChange={handleTextChange}
-          disabled={status === "submitting"}
-        ></textarea>
-        <br />
-        <button
-          type="submit"
-          disabled={answer === "" || status === "submitting"}
-        >
-          Submit
-        </button>
-        {status === "submitting" && <p className="Error">Loading...</p>}
-        {error && <p className="Error">{error}</p>}
-      </form>
-    </>
+    <div>
+      <div>
+        {inputs.map((input) => (
+          <div key={input.id} style={{ marginBottom: "5px" }}>
+            <input type="text"></input>
+          </div>
+        ))}
+      </div>
+      <div style={{ marginTop: "20px" }}>
+        <button onClick={handleAddInput}>Add Input</button>
+      </div>
+    </div>
   );
 }
