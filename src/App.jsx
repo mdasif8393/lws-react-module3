@@ -1,10 +1,10 @@
-import TravelEditable from "./components/TravelEditable";
+import TravelPlan from "./components/TravelPlan";
 import "./components/style.css";
 
 function App() {
   return (
     <div>
-      <TravelEditable />
+      <TravelPlan />
     </div>
   );
 }
