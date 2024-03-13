@@ -1,12 +1,9 @@
-import Accordion from "./components/Accordion";
-import "./components/style.css";
+import MyComponent from "./components/MyComponent";
 
-function App() {
+export default function App() {
   return (
     <div>
-      <Accordion />
+      <MyComponent />
     </div>
   );
 }
-
-export default App;
