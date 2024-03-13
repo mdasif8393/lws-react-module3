@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 export default function PlaceTree({ id, placesById, parentId, onComplete }) {
-  const place = placesById[id];
+  const place = placesById[id]; // Earth
 
-  const childIds = place.childIds;
+  const childIds = place.childIds; // [2, 10, 19, 26, 34]
+  console.log(childIds);
 
   return (
     <li>

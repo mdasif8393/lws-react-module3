@@ -5,8 +5,8 @@ import PlaceTree from "./PlaceTree";
 export default function TravelPlan() {
   const [plan, setPlan] = useState(initialTravelPlan);
 
-  const root = plan[0];
-  const planetIds = root.childIds;
+  const root = plan[0]; // {id: 0, title: '(Root)', childIds: Array(3)}
+  const planetIds = root.childIds; // [1, 42, 46]
 
   const handleComplete = (parentId, childId) => {
     const parent = plan[parentId];
@@ -30,7 +30,7 @@ export default function TravelPlan() {
           <PlaceTree
             key={placeId}
             id={placeId}
-            placesById={plan}
+            placesById={plan} // full plan
             onComplete={handleComplete}
             parentId={0}
           />

@@ -1,10 +1,10 @@
-import TravelPlan from "./components/TravelPlan";
+import Accordion from "./components/Accordion";
 import "./components/style.css";
 
 function App() {
   return (
     <div>
-      <TravelPlan />
+      <Accordion />
     </div>
   );
 }
