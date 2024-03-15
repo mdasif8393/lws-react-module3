@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export default function ContactList({ selectedContact, contacts, onSelect }) {
   return (
     <section className="contact-list">
